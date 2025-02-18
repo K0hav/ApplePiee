@@ -1,0 +1,1 @@
+let age = prompt("ingresa tu edad;")
