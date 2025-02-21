@@ -1,45 +1,47 @@
-def suma(x, y):
-    print(f"La suma es: {x + y}")
+def mostrar_menu():
+    print("\n Bienvenido a tu calculadora de confianza \n")
+    print("\n Menú ")
+    print("1. Calcular IMC")
+    print("2. Ver tabla de clasificación")
+    print("3. Salir")
 
-def resta(x, y):
-    print(f"La resta es: {x - y}")
+def calcular_imc():
+    peso = float (input("ingresa tu peso en kg: "))
+    altura = float (input("ingresa tu altura en metros"))
 
-def multi(x, y):
-    print(f"La multiplicación es: {x * y}")
+    if peso <= 0 or altura <= 0:
+        print(" ¡ERROR! Peso y altura deben ser mayores a 0.")  
+        return 
+   
+    imc = peso / (altura ** 2)
+    print(f"\n Tu IMC es : {imc:.2f}")
 
-def div(x, y):
-    if y == 0:
-        print("Error: No se puede dividir por 0.")
+    if imc < 18.5:
+        print("Estás en una categoria de peso bajo :(")
+    elif 18.5 <= imc < 24.9:
+        print("Estás en una categoria de peso normal :D")
+    elif 25 <= imc < 29.9:
+        print("Estás en una categoria de sobrepeso :[")
     else:
-        print(f"La división es: {x / y}")
+        print("Estás en un rango de obesidad D:")
+
+def mostrar_menu():
+    print("\n Bienvenido a tu calculadora de confianza \n")
+    print("\n Menú ")
+    print("1. Calcular IMC")
+    print("2. Ver tabla de clasificación")
+    print("3. Salir")
 
 while True:
-    print("\nBienvenido a tu calculadora de confianza\n")
-    print("¿Qué deseas realizar?")
-    print("1. Sumar")
-    print("2. Restar")
-    print("3. Multiplicar")
-    print("4. Dividir")
-    print("5. Salir")
+    mostrar_menu()
+    opcion = input("Elige una opción: ")
 
-    response = int(input("Escribe la opción: "))
-
-    if response == 5:
-        print("¡Gracias por usar la calculadora!")
-        break  # Sale del bucle
-
-    # Solo pide los números si la opción es válida
-    if response in [1, 2, 3, 4]:
-        a = int(input("Escribe un número: "))
-        b = int(input("Escribe otro número: "))
-
-        if response == 1:
-            suma(a, b)
-        elif response == 2:
-            resta(a, b)
-        elif response == 3:
-            multi(a, b)
-        elif response == 4:
-            div(a, b)
+    if opcion == "1":
+         calcular_imc()
+    elif opcion == "2":
+        print("Mostrando tabla de clasificación")
+    elif opcion == "3":
+        print("¡Chaoooo!")
+        break
     else:
-        print("Opción no válida. Inténtalo de nuevo.")
+        print(" Opción no válida. Inténtalo de nuevo.")
